@@ -49,5 +49,14 @@ public class enemy_follow : MonoBehaviour
             transform.position = tempPos;
         }
     }
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject other=collision.gameObject;
+        if (other.tag == "Player")
+        {
+            
+        }
+    }
+
 }
