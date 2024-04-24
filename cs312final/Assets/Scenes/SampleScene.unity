@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 280182924}
   - component: {fileID: 280182923}
   - component: {fileID: 280182922}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: leftEar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 316009263}
   - component: {fileID: 316009262}
   - component: {fileID: 316009261}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: backLeg_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 417882050}
   - component: {fileID: 417882049}
   - component: {fileID: 417882048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: frontLeg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 489533774}
   - component: {fileID: 489533773}
   - component: {fileID: 489533772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 691406698}
   - component: {fileID: 691406697}
   - component: {fileID: 691406696}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 759123046}
   - component: {fileID: 759123045}
   - component: {fileID: 759123044}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rightEar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 950599844}
   - component: {fileID: 950599843}
   - component: {fileID: 950599842}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: headBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 1167528899}
   - component: {fileID: 1167528898}
   - component: {fileID: 1167528897}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: frontLeg_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 1172240723}
   - component: {fileID: 1172240722}
   - component: {fileID: 1172240721}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: backLeg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1494,7 +1494,7 @@ GameObject:
   - component: {fileID: 1248965834}
   - component: {fileID: 1248965833}
   - component: {fileID: 1248965832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1869,9 +1869,10 @@ GameObject:
   - component: {fileID: 1532026438}
   - component: {fileID: 1532026439}
   - component: {fileID: 1532026440}
-  m_Layer: 0
+  - component: {fileID: 1532026441}
+  m_Layer: 12
   m_Name: catEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1940,6 +1941,33 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.8
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1532026441
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532026437}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1599573600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1980,7 @@ GameObject:
   - component: {fileID: 1599573604}
   - component: {fileID: 1599573603}
   - component: {fileID: 1599573602}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: headRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2059,7 +2087,7 @@ GameObject:
   - component: {fileID: 1659284904}
   - component: {fileID: 1659284903}
   - component: {fileID: 1659284902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: headLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2435,7 +2463,7 @@ GameObject:
   - component: {fileID: 1836122184}
   - component: {fileID: 1836122183}
   - component: {fileID: 1836122182}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
