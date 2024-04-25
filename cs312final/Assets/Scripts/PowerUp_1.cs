@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUp_1 : MonoBehaviour
 {
     [Header("Set in Inspector")]
-    public float newSpeedMult = 3f;
+    public float speedMult = 3f;
 
     [Header("Set Dynamically")]
     public float newSpeed;
@@ -19,7 +19,7 @@ public class PowerUp_1 : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            newSpeed = StickFigure.S.speed * newSpeedMult;
+            newSpeed = StickFigure.S.speed * speedMult;
             StickFigure.S.PowerUp1(newSpeed);
         }
     }

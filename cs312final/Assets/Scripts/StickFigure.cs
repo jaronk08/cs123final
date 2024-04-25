@@ -82,8 +82,15 @@ public class StickFigure : MonoBehaviour
 
     }
 
+    //functions for setting powerups
     public void PowerUp1(float nSpeed)
     {
         speed = nSpeed;
+    }
+
+    public void PowerUp2(float nFdelay, float nFspeed)
+    {
+        projectileSpeed = nFspeed;
+        fireDelay = nFdelay;
     }
 }
