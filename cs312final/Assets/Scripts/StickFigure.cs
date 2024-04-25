@@ -8,7 +8,7 @@ public class StickFigure : MonoBehaviour
     static public StickFigure S;
 
     [Header("Set in Inspector")]
-    public float speed = 30f;
+    public float speed = 10f;
     public float projectileSpeed = 30f;
     public float fireDelay = 1;
 
@@ -16,8 +16,18 @@ public class StickFigure : MonoBehaviour
     Rigidbody rigidBody;
     public GameObject projectilePrefab;
     private float lastFire;
-    
 
+    private void Awake()
+    {
+        if (S == null)
+        {
+            S = this;
+        }
+        else
+        {
+            Debug.LogError("StickFigure.Awake() - Attempted to assign Hero.S");
+        }
+    }
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -72,4 +82,8 @@ public class StickFigure : MonoBehaviour
 
     }
 
+    public void PowerUp1(float nSpeed)
+    {
+        speed = nSpeed;
+    }
 }
