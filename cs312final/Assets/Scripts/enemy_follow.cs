@@ -9,10 +9,12 @@ public class enemy_follow : MonoBehaviour
     public string targetTag = "Player"; //player tag
     public float followSpeed = 5f;
     public float pushForce = 10f;
+    public float pushDuration = 1f;
+    
 
     private Transform targetTransform;
     private GameObject targetObject;
-    private float lockedY = 1.4f;
+    private float lockedY = 1.6f;
 
     private void Awake()
     {
@@ -55,8 +57,33 @@ public class enemy_follow : MonoBehaviour
         GameObject other=collision.gameObject;
         if (other.tag == "Player")
         {
-            
+            Debug.Log("hit");
+            StartCoroutine(ApplyPushForce(collision.rigidbody, collision.contacts[0].point));
         }
     }
 
+    IEnumerator ApplyPushForce(Rigidbody rb, Vector3 contactPoint)
+    {
+        // Calculate the direction from the collided object to this GameObject
+        Vector3 pushDirection = contactPoint - transform.position;
+        pushDirection = pushDirection.normalized;
+
+        float elapsedTime = 0f;
+
+        // Apply force over time
+        while (elapsedTime < pushDuration)
+        {
+            // Calculate the force to apply at this frame
+            float forceMagnitude = Mathf.Lerp(0, pushForce, elapsedTime / pushDuration);
+            Vector3 force = pushDirection * forceMagnitude;
+
+            // Apply force to the collided object
+            rb.AddForce(force, ForceMode.Impulse);
+
+            // Increment elapsed time
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+    }
 }
