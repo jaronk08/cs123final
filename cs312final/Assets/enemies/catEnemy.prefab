@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 4766346395393218624}
   - component: {fileID: 437032213796577291}
   - component: {fileID: 3622794836958213}
+  - component: {fileID: 6113639885448302951}
   m_Layer: 12
   m_Name: catEnemy
   m_TagString: Enemy
@@ -443,6 +444,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2779b019d8ed05e4087113bd9f091df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1
+--- !u!114 &6113639885448302951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570386291066368711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e55673aff304d046b2285474d72b2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main: {fileID: 0}
+  enemyScore: 5
 --- !u!1 &4739008441564078769
 GameObject:
   m_ObjectHideFlags: 0

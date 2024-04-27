@@ -546,6 +546,7 @@ GameObject:
   - component: {fileID: 6807859305076784475}
   - component: {fileID: -5588743481630234252}
   - component: {fileID: 7682306027325064409}
+  - component: {fileID: 6175824935415534919}
   m_Layer: 12
   m_Name: stickShooter
   m_TagString: Enemy
@@ -640,7 +641,7 @@ MonoBehaviour:
   pushDuration: 0.1
   stoppingDistance: 10
   projectilePrefab: {fileID: 6311676198603874525, guid: dc7cd719b6b6878429ed436cfe096dbf, type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 3
   fireDelay: 5
 --- !u!114 &7682306027325064409
 MonoBehaviour:
@@ -654,7 +655,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412a7036f00e74346a0f1c998b1d8c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 2
+--- !u!114 &6175824935415534919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999737364622073518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e55673aff304d046b2285474d72b2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main: {fileID: 0}
+  enemyScore: 10
 --- !u!1 &6221918499855577358
 GameObject:
   m_ObjectHideFlags: 0
