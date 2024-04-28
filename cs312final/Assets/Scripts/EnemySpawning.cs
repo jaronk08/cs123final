@@ -6,15 +6,19 @@ public class EnemySpawning : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public GameObject[] prefabEnemies;
-    public float SpawnPerSec = 0.5f;
+    
 
     [Header("Set Dynamically")]
     public float spawnRadius = 10f;
+    private static float SpawnPerSec = 0.5f;
+    
 
     private void Start()
     {
         Invoke("SpawnEnemies", 2.5f);
+        
     }
+    
 
     void SpawnEnemies()
     {
@@ -29,7 +33,8 @@ public class EnemySpawning : MonoBehaviour
         randomPos.z = randomPos.z - 16 +38;
 
         //Instantiate & Invoke.
-        GameObject go = Instantiate<GameObject>(prefabEnemies[index], randomPos, Quaternion.identity);
+        GameObject go = Instantiate<GameObject>(prefabEnemies[index], randomPos,Quaternion.identity);
         Invoke("SpawnEnemies", 1f / SpawnPerSec);
     }
+    
 }

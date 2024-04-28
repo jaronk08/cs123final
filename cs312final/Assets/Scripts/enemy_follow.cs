@@ -57,7 +57,7 @@ public class enemy_follow : MonoBehaviour
         GameObject other=collision.gameObject;
         if (other.tag == "Player")
         {
-            Debug.Log("hit");
+            
             StartCoroutine(ApplyPushForce(collision.rigidbody, collision.contacts[0].point));
         }
     }
