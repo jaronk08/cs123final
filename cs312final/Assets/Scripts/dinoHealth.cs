@@ -9,17 +9,20 @@ public class dinoHealth : MonoBehaviour
 
     [Header("Set Dynamically")]
     private GameObject lastTriggerGo = null;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
         
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -41,14 +44,14 @@ public class dinoHealth : MonoBehaviour
             Debug.Log("hit");
             if (health > 0)
             {
-                health--;
+                //health--;
             }
             else
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
                 
             }
-            Destroy(go);
+           // Destroy(go);
         }
     }
 }

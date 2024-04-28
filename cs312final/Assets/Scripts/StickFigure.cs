@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StickFigure : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class StickFigure : MonoBehaviour
     public float speed = 10f;
     public float projectileSpeed = 30f;
     public float fireDelay = 1;
+    public int health = 10;
 
     [Header("Set Dynamically")]
     Rigidbody rigidBody;
     public GameObject projectilePrefab;
     private float lastFire;
+    private GameObject lastTriggerGo = null;
 
     private void Awake()
     {
@@ -92,5 +95,38 @@ public class StickFigure : MonoBehaviour
     {
         projectileSpeed = nFspeed;
         fireDelay = nFdelay;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Transform rootT = collision.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+
+        //check for repeat triggers
+        if (go == lastTriggerGo)
+        {
+            Invoke("resetDamager", 1f);
+            return;
+        }
+        lastTriggerGo = go;
+
+        if (go.tag=="Enemy")
+        {
+            Debug.Log("damaged");
+            if (health > 1)
+            {
+                health--;
+            }
+            else
+            {
+                health = 10;
+                SceneManager.LoadScene(2);
+                
+            }
+        }
+    }
+    public void resetDamager()
+    {
+        lastTriggerGo = null;
     }
 }

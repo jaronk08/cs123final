@@ -1619,6 +1619,7 @@ GameObject:
   - component: {fileID: -3654084053185874010}
   - component: {fileID: -3322449384077329786}
   - component: {fileID: 3998058642375387440}
+  - component: {fileID: 6252906031652720483}
   m_Layer: 12
   m_Name: stickDino
   m_TagString: Enemy
@@ -1634,8 +1635,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5755640336084898335}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6830127, y: 0.18301266, z: -0.18301266, w: 0.6830127}
-  m_LocalPosition: {x: 93.98, y: 102.16, z: -29.642767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 94.453926, y: 102.787186, z: -29.8}
   m_LocalScale: {x: 1, y: 1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1643,7 +1644,7 @@ Transform:
   - {fileID: 1504757327718631214}
   - {fileID: 8455465811846067677}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1054578583232322867
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1729,12 +1730,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 4, z: 3}
+  m_Size: {x: 2, y: 3, z: 10}
   m_Center: {x: 0.5, y: 1, z: 0}
+--- !u!114 &6252906031652720483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755640336084898335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61e41ed78fc6df42bda6f45f94d7725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5802992855988273061
 GameObject:
   m_ObjectHideFlags: 0
