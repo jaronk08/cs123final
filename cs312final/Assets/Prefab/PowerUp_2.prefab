@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e7f028cb6a4294aad6b136dd2f70e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireDelayDec: 0.08
-  fireSpeedInc: 0.8
+  fireDelayDec: 0.15
+  fireSpeedInc: 1
   newFireDelay: 0
   newFireSpeed: 0

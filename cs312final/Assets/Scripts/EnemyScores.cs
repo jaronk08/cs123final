@@ -12,7 +12,7 @@ public class EnemyScores : MonoBehaviour
 
     void Start()
     {
-        main = FindObjectOfType<Main>();;
+        main = FindObjectOfType<Main>();
     }
 
     private void OnDestroy()
