@@ -9,9 +9,12 @@ public class ScoreMan : MonoBehaviour
 
     public Text ScoreText;
     public static int score = 0;
+    public Text HealthText;
+    public static int health=StickFigure.S.health;
 
     private void Update()
     {
         ScoreText.text = "Score: " + score;
+        HealthText.text = "Health: " + health;
     }
 }

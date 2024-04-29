@@ -93,4 +93,45 @@ public class StickFigure : MonoBehaviour
         projectileSpeed = nFspeed;
         fireDelay = nFdelay;
     }
+<<<<<<< Updated upstream
+=======
+
+    public void PowerUp3(int nHealth)
+    {
+        health=nHealth;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Transform rootT = collision.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+
+        //check for repeat triggers
+        if (go == lastTriggerGo)
+        {
+            Invoke("resetDamager", 1f);
+            return;
+        }
+        lastTriggerGo = go;
+
+        if (go.tag=="Enemy")
+        {
+            Debug.Log("damaged");
+            if (health > 1)
+            {
+                health--;
+            }
+            else
+            {
+                health = 10;
+                SceneManager.LoadScene(2);
+                
+            }
+        }
+    }
+    public void resetDamager()
+    {
+        lastTriggerGo = null;
+    }
+>>>>>>> Stashed changes
 }
