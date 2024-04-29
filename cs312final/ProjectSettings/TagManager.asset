@@ -8,6 +8,7 @@ TagManager:
   - PowerUp
   - Enemy
   - Wall
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Enemy
   - Wall
   - Enemy Projectile
-  - 
+  - Boss
   - 
   - 
   - 
