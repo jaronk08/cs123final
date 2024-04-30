@@ -97,6 +97,11 @@ public class StickFigure : MonoBehaviour
         fireDelay = nFdelay;
     }
 
+    public void PowerUp3(int nHealth)
+    {
+        health=nHealth;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Transform rootT = collision.gameObject.transform.root;
