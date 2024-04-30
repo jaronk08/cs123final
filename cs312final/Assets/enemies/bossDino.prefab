@@ -2048,7 +2048,7 @@ MonoBehaviour:
   numberOfObjects: 5
   launchSpeed: 25
   launchSpread: 5
-  maxRotationAngle: 20
+  maxRotationAngle: 45
 --- !u!114 &-8633922970509119965
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,33 +25,38 @@ public class Fire : MonoBehaviour
 
     void Launch()
     {
-        for (int i = 0; i < numberOfObjects; i++)
+        if (target != null)
         {
-            // Calculate a random position within the launch area
-            Vector3 launchPosition = transform.position;
 
-            // Calculate direction towards the target
-            Vector3 launchDirection = (launchTarget.position - launchPosition).normalized;
 
-            // Apply random rotation to the launch direction
-            launchDirection = Quaternion.Euler(Random.Range(-maxRotationAngle, maxRotationAngle), Random.Range(-maxRotationAngle, maxRotationAngle), Random.Range(-maxRotationAngle, maxRotationAngle)) * launchDirection;
-
-            // Instantiate the object at the calculated position
-            GameObject newObject = Instantiate(objectToLaunch, launchPosition, initialRot);
-
-            // Get the Rigidbody component of the launched object
-            Rigidbody rb = newObject.GetComponent<Rigidbody>();
-
-            if (rb != null)
+            for (int i = 0; i < numberOfObjects; i++)
             {
-                // Apply force to launch the object towards the target
-                rb.velocity = launchDirection * launchSpeed;
+                // Calculate a random position within the launch area
+                Vector3 launchPosition = transform.position;
+
+                // Calculate direction towards the target
+                Vector3 launchDirection = (launchTarget.position - launchPosition).normalized;
+
+                // Apply random rotation to the launch direction
+                launchDirection = Quaternion.Euler(Random.Range(-maxRotationAngle, maxRotationAngle), Random.Range(-maxRotationAngle, maxRotationAngle), Random.Range(-maxRotationAngle, maxRotationAngle)) * launchDirection;
+
+                // Instantiate the object at the calculated position
+                GameObject newObject = Instantiate(objectToLaunch, launchPosition, initialRot);
+
+                // Get the Rigidbody component of the launched object
+                Rigidbody rb = newObject.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    // Apply force to launch the object towards the target
+                    rb.velocity = launchDirection * launchSpeed;
+                }
+                else
+                {
+                    Debug.LogWarning("Rigidbody component not found on the object to launch.");
+                }
             }
-            else
-            {
-                Debug.LogWarning("Rigidbody component not found on the object to launch.");
-            }
+            Invoke("Launch", 5f);
         }
-        Invoke("Launch", 5f);
     }
 }
