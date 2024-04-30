@@ -142,7 +142,7 @@ public class StickFigure : MonoBehaviour
         }
         lastTriggerGo = go;
 
-        if (go.tag=="Enemy"||go.tag=="Dino"||go.tag=="enemyProj")
+        if (go.tag=="Enemy"||go.tag=="Dino"||go.tag=="enemyProj"||go.tag=="Fire")
         {
             
             if (health > 1)
@@ -168,7 +168,7 @@ public class StickFigure : MonoBehaviour
                 //Invoke("endGame", 5f);
                 
             }
-            if (go.tag == "enemyProj")
+            if (go.tag == "enemyProj"||go.tag=="Fire")
             {
                 Destroy(go);
             }

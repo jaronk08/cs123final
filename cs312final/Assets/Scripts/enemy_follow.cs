@@ -1,16 +1,17 @@
-using System.Collections;
+   using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class enemy_follow : MonoBehaviour
 {
     public Main S;
+    public EnemySpawning F;
     [Header("Set in Inspector")]
     public string targetTag = "Player"; //player tag
     public float followSpeed = 5f;
     public float pushForce = 10f;
     public float pushDuration = 1f;
-    
+    public bool destroyOnBoss = false;
 
     private Transform targetTransform;
     private GameObject targetObject;
@@ -24,6 +25,7 @@ public class enemy_follow : MonoBehaviour
             targetTransform = targetObject.transform;
         }
         S = FindObjectOfType<Main>();
+        F = FindObjectOfType<EnemySpawning>();
     }
     //find tag at start
     void Start()
@@ -51,7 +53,13 @@ public class enemy_follow : MonoBehaviour
             tempPos.y = lockedY;
             transform.position = tempPos;
         }
-        if (hasPassed && S.scoreShow() > 250)
+        else
+        {
+            Destroy(gameObject);
+            S.ResetScore();
+            F.SetSpawnRate(0.2f);
+        }
+        if (hasPassed==false && S.scoreShow() > 150&&destroyOnBoss)
         {
             hasPassed = true;
             Destroy(gameObject);

@@ -51,6 +51,7 @@ public class EnemySpawning : MonoBehaviour
     public void SetSpawnRate(float sr)
     {
         SpawnPerSec = sr;
+        Debug.Log(SpawnPerSec);
     }
 
     public void SpawnBoss1()

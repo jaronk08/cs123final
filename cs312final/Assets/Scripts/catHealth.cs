@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class catHealth : MonoBehaviour
 {
+    public Main main;
+
     [Header("Set in Inspector")]
     public int health = 4;
+    public int enemyScore = 10;
 
     [Header("Set Dynamically")]
     private GameObject lastTriggerGo = null;
@@ -15,7 +18,7 @@ public class catHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        main = FindObjectOfType<Main>();
     }
 
     // Update is called once per frame
@@ -47,7 +50,10 @@ public class catHealth : MonoBehaviour
             else
             {
                 Destroy(gameObject);
-
+                if (main != null)
+                {
+                    main.AddScore(enemyScore);
+                }
             }
             Destroy(go);
         }

@@ -11,6 +11,7 @@ TagManager:
   - Boss
   - Dino
   - enemyProj
+  - Fire
   layers:
   - Default
   - TransparentFX

@@ -75,4 +75,13 @@ public class Main : MonoBehaviour
     {
         return scoreTotal;
     }
+    public void ResetScore()
+    {
+        scoreTotal = 0;
+        diffInc1 = false;
+        diffInc2 = false;
+            diffInc3 = false;
+        diffInc4 = false;
+        diffInc5 = false;
+    }
 }

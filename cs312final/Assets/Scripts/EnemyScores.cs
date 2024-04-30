@@ -19,9 +19,9 @@ public class EnemyScores : MonoBehaviour
     {
         if (main != null)
         {
-            main.AddScore(enemyScore);
+           // main.AddScore(enemyScore);
         }
     }
-
+    
 
 }

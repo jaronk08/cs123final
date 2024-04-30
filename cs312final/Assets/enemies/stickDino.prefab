@@ -1684,10 +1684,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db39745625b0f54baf8fa86de7d7ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  S: {fileID: 0}
   targetTag: Player
   followSpeed: 2
   pushForce: 2
   pushDuration: 0.1
+  destroyOnBoss: 1
 --- !u!114 &-3654084053185874010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,6 +1750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61e41ed78fc6df42bda6f45f94d7725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main: {fileID: 0}
+  enemyScore: 15
   health: 3
 --- !u!1 &5802992855988273061
 GameObject:

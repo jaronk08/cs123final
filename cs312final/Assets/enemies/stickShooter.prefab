@@ -635,6 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6bc3bac92c991409a2bb71c66cc11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  S: {fileID: 0}
   targetTag: Player
   followSpeed: 5
   pushForce: 2
@@ -643,6 +644,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6311676198603874525, guid: dc7cd719b6b6878429ed436cfe096dbf, type: 3}
   projectileSpeed: 3
   fireDelay: 5
+  destroyOnBoss: 1
 --- !u!114 &7682306027325064409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412a7036f00e74346a0f1c998b1d8c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main: {fileID: 0}
   health: 2
+  enemyScore: 10
 --- !u!114 &6175824935415534919
 MonoBehaviour:
   m_ObjectHideFlags: 0

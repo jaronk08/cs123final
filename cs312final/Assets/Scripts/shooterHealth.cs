@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class shooterHealth : MonoBehaviour
 {
+    public Main main;
     [Header("Set in Inspector")]
     public int health = 5;
-
+    public int enemyScore = 10;
     [Header("Set Dynamically")]
     private GameObject lastTriggerGo = null;
     // Start is called before the first frame update
     void Start()
     {
-        
+        main = FindObjectOfType<Main>();
     }
 
     // Update is called once per frame
@@ -44,7 +45,10 @@ public class shooterHealth : MonoBehaviour
             else
             {
                 Destroy(gameObject);
-
+                if (main != null)
+                {
+                    main.AddScore(enemyScore);
+                }
             }
             Destroy(go);
         }

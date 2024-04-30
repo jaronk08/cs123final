@@ -16,6 +16,7 @@ public class shooterMovement : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 30f;
     public float fireDelay = 1;
+    public bool destroyOnBoss = false;
 
     private Transform targetTransform;
     private GameObject targetObject;
@@ -63,8 +64,12 @@ public class shooterMovement : MonoBehaviour
                 transform.position = tempPos;
             }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        if (hasPassed && S.scoreShow() > 250)
+        if (hasPassed==false && S.scoreShow() > 150&&destroyOnBoss)
         {
             hasPassed = true;
             Destroy(gameObject);

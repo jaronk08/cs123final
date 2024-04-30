@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Boss2 : MonoBehaviour
 {
+    public Main main;
     public EnemySpawning S;
     [Header("Set in Inspector")]
     public int health = 8;
+    public int enemyScore = 10;
     // Start is called before the first frame update
     private void Start()
     {
         S = FindObjectOfType<EnemySpawning>();
+        main = FindObjectOfType<Main>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,11 @@ public class Boss2 : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(go);
                 S.SetSpawnRate(2f);
+                
+                if (main != null)
+                {
+                    main.AddScore(enemyScore);
+                }
             }
 
         }

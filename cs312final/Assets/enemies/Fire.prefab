@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: -35791085259952055}
   m_Layer: 17
   m_Name: Fire
-  m_TagString: Dino
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
