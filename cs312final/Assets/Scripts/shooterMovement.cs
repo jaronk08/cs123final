@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class shooterMovement : MonoBehaviour
 {
+    public Main S;
     [Header("Set in Inspector")]
     public string targetTag = "Player"; //player tag
     public float followSpeed = 5f;
@@ -20,7 +21,7 @@ public class shooterMovement : MonoBehaviour
     private GameObject targetObject;
     private float lockedY = -1.21f;
     private float lastFire;
-
+    private bool hasPassed = false;
     private void Awake()
     {
         targetObject = GameObject.FindGameObjectWithTag(targetTag);
@@ -28,7 +29,11 @@ public class shooterMovement : MonoBehaviour
         {
             targetTransform = targetObject.transform;
         }
-        Invoke("Shoot", 5f);
+        if (targetObject!=null)
+        {
+            Invoke("Shoot", 5f);
+        }
+        S = FindObjectOfType<Main>();
     }
 
 
@@ -41,37 +46,49 @@ public class shooterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = targetTransform.position - transform.position;
-
-        if(direction.magnitude>stoppingDistance)
+        if (targetObject != null)
         {
-            direction.Normalize();
+            Vector3 direction = targetTransform.position - transform.position;
 
-            //get movement
-            float movementAmount = followSpeed * Time.deltaTime;
+            if (direction.magnitude > stoppingDistance)
+            {
+                direction.Normalize();
 
-            // Move towards the player
-            Vector3 tempPos = transform.position += direction * movementAmount;
-            tempPos.y = lockedY;
-            transform.position = tempPos;
+                //get movement
+                float movementAmount = followSpeed * Time.deltaTime;
+
+                // Move towards the player
+                Vector3 tempPos = transform.position += direction * movementAmount;
+                tempPos.y = lockedY;
+                transform.position = tempPos;
+            }
         }
 
-       
+        if (hasPassed && S.scoreShow() > 250)
+        {
+            hasPassed = true;
+            Destroy(gameObject);
+        }
+
     }
 
     void Shoot()
     {
-        Vector3 direction = targetTransform.position - transform.position;
-        Vector3 shootingPosition = transform.position;
-        shootingPosition.y = shootingPosition.y-39f;
-
-        GameObject projectile = Instantiate(projectilePrefab, shootingPosition,transform.rotation) as GameObject;
-        Rigidbody rigidBody = projectile.GetComponent<Rigidbody>();
-
-        rigidBody.velocity = direction * projectileSpeed;
-        if (gameObject != null)
+        if (targetObject != null)
         {
-            Invoke("Shoot", 3f);
+            Vector3 direction = targetTransform.position - transform.position;
+            Vector3 shootingPosition = transform.position;
+            shootingPosition.y = shootingPosition.y - 39f;
+
+            GameObject projectile = Instantiate(projectilePrefab, shootingPosition, transform.rotation) as GameObject;
+            Rigidbody rigidBody = projectile.GetComponent<Rigidbody>();
+
+            rigidBody.velocity = direction * projectileSpeed;
+            if (gameObject != null)
+            {
+                Invoke("Shoot", 3f);
+            }
         }
+       
     }
 }

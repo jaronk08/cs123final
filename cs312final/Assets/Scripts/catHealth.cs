@@ -39,7 +39,7 @@ public class catHealth : MonoBehaviour
         if (go.tag == "Projectile")
         {
 
-            Debug.Log("hit");
+            
             if (health > 0)
             {
                 health--;

@@ -2,34 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class death : MonoBehaviour
+public class Boss2 : MonoBehaviour
 {
-    private bool hasPassed = false;
+    public EnemySpawning S;
     [Header("Set in Inspector")]
     public int health = 8;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        S = FindObjectOfType<EnemySpawning>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hasPassed && Main.scoreTotal > 250)
-        {
-            hasPassed = true;
-            Destroy(gameObject);
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject go=other.gameObject;
+        GameObject go = other.gameObject;
 
         if (go.tag == "Projectile")
         {
-           if(health>0)
+            if (health > 0)
             {
                 health--;
                 Destroy(go);
@@ -38,6 +34,7 @@ public class death : MonoBehaviour
             {
                 Destroy(gameObject);
                 Destroy(go);
+                S.SetSpawnRate(2f);
             }
 
         }

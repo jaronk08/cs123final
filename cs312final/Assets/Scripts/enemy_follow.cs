@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemy_follow : MonoBehaviour
 {
-
+    public Main S;
     [Header("Set in Inspector")]
     public string targetTag = "Player"; //player tag
     public float followSpeed = 5f;
@@ -15,7 +15,7 @@ public class enemy_follow : MonoBehaviour
     private Transform targetTransform;
     private GameObject targetObject;
     private float lockedY = 1.6f;
-
+    private bool hasPassed = false;
     private void Awake()
     {
         targetObject = GameObject.FindGameObjectWithTag(targetTag);
@@ -23,6 +23,7 @@ public class enemy_follow : MonoBehaviour
         {
             targetTransform = targetObject.transform;
         }
+        S = FindObjectOfType<Main>();
     }
     //find tag at start
     void Start()
@@ -49,6 +50,11 @@ public class enemy_follow : MonoBehaviour
             Vector3 tempPos=transform.position += direction * movementAmount;
             tempPos.y = lockedY;
             transform.position = tempPos;
+        }
+        if (hasPassed && S.scoreShow() > 250)
+        {
+            hasPassed = true;
+            Destroy(gameObject);
         }
     }
 
@@ -78,7 +84,11 @@ public class enemy_follow : MonoBehaviour
             Vector3 force = pushDirection * forceMagnitude;
 
             // Apply force to the collided object
-            rb.AddForce(force, ForceMode.Impulse);
+            if(targetObject != null)
+            {
+                rb.AddForce(force, ForceMode.Impulse);
+            }
+            
 
             // Increment elapsed time
             elapsedTime += Time.deltaTime;
