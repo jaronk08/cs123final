@@ -8,12 +8,13 @@ public class Main : MonoBehaviour
     public EnemySpawning S;
 
     public Text scoreUI;
-    public int scoreTotal = 0;
+    public static int scoreTotal = 0;
 
     public bool diffInc1 = false; //increases spawn rate
     public bool diffInc2 = false; //spawns boss1
     public bool diffInc3 = false; //increases spawn rate
     public bool diffInc4 = false; //spawns boss2
+    public bool diffInc5 = false; //increases spawn rate
 
     private void Update()
     {
@@ -41,6 +42,13 @@ public class Main : MonoBehaviour
             diffInc4 = true;
             Debug.Log("Diff Inc. 4");
         }
+        if(scoreTotal > 150 && diffInc5 == false)
+        {
+            S.SpawnBoss2();
+            
+            diffInc5 = true;
+            Debug.Log("Diff Inc. 5");
+        }
     }
 
     private void Start()
@@ -62,5 +70,9 @@ public class Main : MonoBehaviour
             scoreUI.text = "Score: " + scoreTotal.ToString();
         }
        
+    }
+    public int scoreShow()
+    {
+        return scoreTotal;
     }
 }

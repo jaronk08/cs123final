@@ -12,14 +12,20 @@ public class StickFigure : MonoBehaviour
     public float speed = 10f;
     public float projectileSpeed = 30f;
     public float fireDelay = 1;
-    public int health = 10;
+    public static int health = 10;
+    public GameObject body;
+    public GameObject corpse;
+    public GameObject cam;
+    public GameObject camHolder;
 
     [Header("Set Dynamically")]
     Rigidbody rigidBody;
     public GameObject projectilePrefab;
     private float lastFire;
     private GameObject lastTriggerGo = null;
-
+    private Quaternion upDown= Quaternion.Euler(0,90,0);
+    private Quaternion right = Quaternion.Euler(0, 27.098f, 0);
+    private Quaternion left = Quaternion.Euler(0, -27.098f, 0);
     private void Awake()
     {
         if (S == null)
@@ -41,6 +47,32 @@ public class StickFigure : MonoBehaviour
         //player
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            body.transform.rotation = left;
+        }else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            body.transform.rotation = right;
+        }else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        {
+            body.transform.rotation = right;
+        }
+        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+        {
+            body.transform.rotation = left;
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))               
+        {
+            body.transform.rotation = upDown;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            body.transform.rotation= right;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            body.transform.rotation= left;
+        }
 
         rigidBody.velocity = new Vector3(horizontal * speed, 0f, vertical * speed);
 
@@ -110,23 +142,44 @@ public class StickFigure : MonoBehaviour
         }
         lastTriggerGo = go;
 
-        if (go.tag=="Enemy")
+        if (go.tag=="Enemy"||go.tag=="Dino"||go.tag=="enemyProj")
         {
-            Debug.Log("damaged");
+            
             if (health > 1)
             {
-                health--;
+                if (go.tag == "Dino")
+                {
+                    health = health - 3;
+                    Debug.Log(health);
+                }
+                else
+                {
+                    health--;
+                }
+                
             }
             else
             {
+                corpse.SetActive(true);
+                corpse.transform.position = transform.position;
+                cam.transform.SetParent(camHolder.transform);
                 health = 10;
-                SceneManager.LoadScene(2);
+                Destroy(gameObject);
+                //Invoke("endGame", 5f);
                 
+            }
+            if (go.tag == "enemyProj")
+            {
+                Destroy(go);
             }
         }
     }
     public void resetDamager()
     {
         lastTriggerGo = null;
+    }
+    public void endGame()
+    {
+        SceneManager.LoadScene(2);
     }
 }

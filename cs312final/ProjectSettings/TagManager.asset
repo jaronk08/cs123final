@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Wall
   - Boss
+  - Dino
+  - enemyProj
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Wall
   - Enemy Projectile
   - Boss
-  - 
+  - corpse
   - 
   - 
   - 
