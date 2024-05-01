@@ -32,7 +32,7 @@ public class shooterMovement : MonoBehaviour
         }
         if (targetObject!=null)
         {
-            Invoke("Shoot", 5f);
+            Invoke("Shoot", 2f);
         }
         S = FindObjectOfType<Main>();
     }

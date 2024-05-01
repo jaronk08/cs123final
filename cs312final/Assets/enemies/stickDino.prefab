@@ -1685,8 +1685,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   S: {fileID: 0}
+  F: {fileID: 0}
   targetTag: Player
-  followSpeed: 2
+  followSpeed: 3
   pushForce: 2
   pushDuration: 0.1
   destroyOnBoss: 1

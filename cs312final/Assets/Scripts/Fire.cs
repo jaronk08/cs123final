@@ -56,7 +56,7 @@ public class Fire : MonoBehaviour
                     Debug.LogWarning("Rigidbody component not found on the object to launch.");
                 }
             }
-            Invoke("Launch", 5f);
+            Invoke("Launch", 3f);
         }
     }
 }
