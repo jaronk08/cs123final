@@ -58,8 +58,9 @@ public class enemy_follow : MonoBehaviour
             Destroy(gameObject);
             S.ResetScore();
             F.SetSpawnRate(0.2f);
+            Boss2.dead = false;
         }
-        if (hasPassed==false && S.scoreShow() > 150&&destroyOnBoss)
+        if (hasPassed==false && S.scoreShow() > 150&&destroyOnBoss&&Boss2.dead==false)
         {
             hasPassed = true;
             Destroy(gameObject);

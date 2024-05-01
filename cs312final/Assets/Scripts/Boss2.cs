@@ -9,6 +9,8 @@ public class Boss2 : MonoBehaviour
     [Header("Set in Inspector")]
     public int health = 8;
     public int enemyScore = 10;
+
+    public static bool dead = false;
     // Start is called before the first frame update
     private void Start()
     {
@@ -38,7 +40,7 @@ public class Boss2 : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(go);
                 S.SetSpawnRate(2f);
-                
+                dead = true;
                 if (main != null)
                 {
                     main.AddScore(enemyScore);

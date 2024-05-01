@@ -1980,10 +1980,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   S: {fileID: 0}
+  F: {fileID: 0}
   targetTag: Player
-  followSpeed: 2
+  followSpeed: 5
   pushForce: 2
   pushDuration: 0.1
+  destroyOnBoss: 0
 --- !u!114 &929244248794420836
 MonoBehaviour:
   m_ObjectHideFlags: 0

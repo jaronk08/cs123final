@@ -41,7 +41,9 @@ public class shooterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vector3 setPos = transform.position;
+        setPos.y = lockedY;
+        transform.position = setPos;
     }
 
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class shooterMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (hasPassed==false && S.scoreShow() > 150&&destroyOnBoss)
+        if (hasPassed==false && S.scoreShow() > 150&&destroyOnBoss&&Boss2.dead==false)
         {
             hasPassed = true;
             Destroy(gameObject);
